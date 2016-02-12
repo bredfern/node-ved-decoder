@@ -1,0 +1,15 @@
+{
+  "name": "veddecode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "process_ved.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "base-64": "^0.1.0",
+    "webhdfs": "^0.3.0"
+  }
+}
