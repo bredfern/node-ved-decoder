@@ -1,8 +1,8 @@
-var base64 = require('base-64');
-var fs = require('fs');
+const base64 = require('base-64');
+const fs = require('fs');
 
 function ved_decode(ved) {
-    var keys = { t: 2, r: 6, s: 7, i: 1 }, ret = {}, re, match;
+    let keys = { t: 2, r: 6, s: 7, i: 1 }, ret = {}, re, match;
     if (ved.match(/^1/)) {
         re = /([a-z]+):([0-9]+)/ig;
         while ((match = re.exec(ved)) !== null)
@@ -16,7 +16,7 @@ function ved_decode(ved) {
         ret[varint_decode(match[1]) >> 3] = varint_decode(match[2]);
     return ret;
     function varint_decode(vint) {
-        var ret = 0, i = 0;
+        let ret = 0, i = 0;
         for (; i < vint.length; ++i) ret += (vint.charCodeAt(i) & 0x7f) << (i * 7);
         return ret;
     }
@@ -24,8 +24,11 @@ function ved_decode(ved) {
 
 
 fs.readFile('veds.txt', function(err, data) {
+    
     if(err) throw err;
-    var array = data.toString().split('\n');
+    
+    let array = data.toString().split('\n');
+    
     for(i in array) {
         console.log(ved_decode(array[i]));
     }
